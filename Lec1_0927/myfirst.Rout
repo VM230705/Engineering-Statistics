@@ -1,0 +1,51 @@
+
+R version 4.1.1 (2021-08-10) -- "Kick Things"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R 是自由軟體，不提供任何擔保。
+在某些條件下歡迎您將其散佈。
+用 'license()' 或 'licence()' 來獲得散佈的詳細條件。
+
+R 是個協作計劃，有許多人為之做出了貢獻。
+用 'contributors()' 來看詳細的情況以及
+用 'citation()' 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 'demo()' 來看一些示範程式，用 'help()' 來檢視線上輔助檔案，或
+用 'help.start()' 透過 HTML 瀏覽器來看輔助檔案。
+用 'q()' 離開 R。
+
+> # create 100 random repeatable number
+> x <- sample(x = 1:100, size = 100, replace = TRUE)
+> x
+  [1]  32  10  96  59  72  43  27  51  54 100  48  50  50  88  58  55  19  58
+ [19] 100  60  10   4  15  87   9  47  19  71  33   7   4  50  23  86  70   5
+ [37]  89  12  60  53  27  23  11   6  52 100  99  26  99  38  29  17  98  20
+ [55]  55  26  19  65  95  55  65  60  41  82  66  22  34  20  15  78  74  56
+ [73]  87  19  95  82  68  83  19  20  14  29  47  75  70  81  53  73  26  93
+ [91]  96   7  64  35  45  65  59  54  42  73
+> #compute mean variable ,standard deviation
+> mean(x)
+[1] 50.31
+> var(x)
+[1] 830.9635
+> sd(x)
+[1] 28.82644
+> #replace 20 number by bot a number (NAN)
+> y <- x 
+> y[sample(x = 1:100, size = 20, replace = FALSE)] <- NaN
+> y
+  [1]  32  10 NaN  59  72  43  27  51 NaN NaN NaN  50 NaN  88  58 NaN  19  58
+ [19] 100  60  10   4  15 NaN   9 NaN NaN  71  33   7   4  50  23  86  70   5
+ [37]  89  12  60  53  27  23  11   6  52 100  99  26 NaN  38  29  17  98  20
+ [55]  55  26  19  65 NaN  55 NaN  60  41  82  66 NaN  34  20  15  78  74  56
+ [73]  87 NaN NaN  82  68 NaN NaN  20 NaN  29  47  75  70  81  53  73  26  93
+ [91]  96   7 NaN  35  45  65  59  54  42 NaN
+> mean(y)
+[1] NaN
+> mean(y,na.rm = TRUE)
+[1] 47.8375
+> 
+> proc.time()
+使用者   系統   流逝 
+  0.14   0.04   0.17 
